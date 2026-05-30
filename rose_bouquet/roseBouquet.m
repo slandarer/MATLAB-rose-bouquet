@@ -48,8 +48,8 @@ surface(xr, yr, hr, propr{:})
 V = V - .4; W = W - .1;
 for k = 1:5
     [U, V, W] = matRotate(U, V, W, Rz2);
-    surface(U, V, W, propr{:})
-    drawStraw(U, V, W)
+    surface(ax, U, V, W, propr{:})
+    drawStraw(ax, U, V, W)
 end
 
 % Draw lily
@@ -65,8 +65,8 @@ Us{4} = U; Vs{4} = V; Ws{4} = W;
 for s = 1:4
     for k = 1:5
         [Us{s}, Vs{s}, Ws{s}] = matRotate(Us{s}, Vs{s}, Ws{s}, Rz2);
-        surface(Us{s}, Vs{s}, Ws{s}, propl{:})
-        drawStraw(Us{s}, Vs{s}, Ws{s})
+        surface(ax, Us{s}, Vs{s}, Ws{s}, propl{:})
+        drawStraw(ax, Us{s}, Vs{s}, Ws{s})
     end
 end
 
@@ -89,16 +89,15 @@ end
         coe2 = ((t).^((0:p)')).*((1 - t).^((p:-1:0)'));
         pnts = (pnts'*(coe1'.*coe2))';
     end
-    function drawStraw(X, Y, Z)
+    function drawStraw(ax, X, Y, Z)
         [m, n] = find(Z == min(min(Z)));
         m = m(1); n = n(1);
         x1 = X(m, n); y1 = Y(m, n); z1 = Z(m, n) + .03;
         xx = [x1, 0, (x1.*cos(pi/3) - y1.*sin(pi/3))./3].';
         yy = [y1, 0, (y1.*cos(pi/3) + x1.*sin(pi/3))./3].';
         zz = [z1, -.7, -1.5].';
-        strawPnts = bezierCurve([xx,yy,zz],50);
-        plot3(strawPnts(:,1), strawPnts(:,2), strawPnts(:,3),...
+        strawPnts = bezierCurve([xx, yy, zz], 50);
+        plot3(ax, strawPnts(:,1), strawPnts(:,2), strawPnts(:,3),...
             'Color',[88,130,126]./255, 'LineWidth',2)
     end
-
 end
