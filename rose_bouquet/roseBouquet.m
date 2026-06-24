@@ -1,4 +1,27 @@
 function roseBouquet(varargin)
+% roseBouquet - Create a 3D rose bouquet visualization (创建 3D 玫瑰花束)
+%   roseBouquet() creates a rose bouquet with default colormap in the current axes.
+%   在当前坐标区使用默认配色创建玫瑰花束。
+%
+%   roseBouquet(ax) creates a rose bouquet in the specified axes with default colormap.
+%   在指定坐标区使用默认配色创建玫瑰花束。
+%
+%   roseBouquet(CList) creates a rose bouquet in the current axes using the
+%   specified colormap matrix CList.
+%   在当前坐标区使用指定的配色矩阵 CList 创建玫瑰花束。
+%
+%   roseBouquet(ax, CList) creates a rose bouquet in the specified axes using
+%   the given colormap matrix.
+%   在指定坐标区使用给定的配色矩阵创建玫瑰花束。
+%
+% Input:
+%   ax    - axes handle (optional) (坐标轴句柄，可选)
+%   CList - N×3 RGB matrix with values in [0, 1], specifying the custom
+%           colormap for the rose bouquet. If not provided, a default colormap
+%           is used. (N×3 RGB 矩阵，数值在 [0,1] 之间，指定玫瑰花束的自定义配色。
+%           若未提供，则使用默认配色。)
+
+
 % Zhaoxu Liu / slandarer (2026). rose bouquet 
 % (https://www.mathworks.com/matlabcentral/fileexchange/154496-rose-bouquet), 
 % MATLAB Central File Exchange. Retrieved April 15, 2026.
